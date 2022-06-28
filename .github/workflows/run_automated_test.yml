@@ -25,8 +25,11 @@ jobs:
       - name: move to pytest_api folder # execute py script        
         run: cd pytest_api
         
-      - name: execute py script
-        run: pytest_venv\Scripts\activate.bat
+      - name: grt dir details
+        run: dir
+        
+      - name: install requirments.txt
+        run: pip3 install -r requirements.txt
         
       - name: execute py script
         run: pytest
