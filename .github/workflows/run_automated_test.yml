@@ -26,7 +26,7 @@ jobs:
         run: cd pytest_api
         
       - name: execute py script
-        run: pytest_venv\Scripts\activate
+        run: pytest_venv/Scripts/activate
         
       - name: execute py script
         run: pytest
