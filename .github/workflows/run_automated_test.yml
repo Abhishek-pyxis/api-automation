@@ -1,10 +1,10 @@
 name: run_api_automation
 
 on:
-   push:
-    branches: [ master, feature1 ]
-#  schedule:
- #   - cron: '24 11 * * *' # runs at 12:00 UTC everyday
+   # push:
+    # branches: [ master, feature1 ]
+  schedule:
+     - cron: '48 20 * * *' # runs at 12:00 UTC everyday
 
 jobs:
   build:
