@@ -29,7 +29,8 @@ jobs:
         run: dir
         
       - name: install requirments.txt
-        run: pip3 install -r pytest_api/requirements.txt
+        # run: pip3 install -r pytest_api/requirements.txt
+	  run: pytest_api\pytest_venv\Scripts\activate.bat
         
       - name: execute py script
-        run: pytest
+        run: pytest --html=.pytest_api\reports\report.html --self-contained-html
