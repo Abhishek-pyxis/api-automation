@@ -184,7 +184,7 @@ def test():
     log.info("Test 123")
 
 
-@when("When statement")
+@when('When statement')
 def when():
     log.info("when statement")
 
@@ -192,4 +192,9 @@ def when():
 
 @then('Print when data context.row')
 def get_when_data():
-    log.info("this is what we want")
+    log.info("this is what we want.")
+
+
+@then('And then statement')
+def and_then():
+    log.info("And then stament.")
