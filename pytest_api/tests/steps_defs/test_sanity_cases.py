@@ -2,12 +2,9 @@ import pytest
 from pytest_bdd import scenarios, given, when, then, parsers
 import configparser
 from utilities.log import custom_logger as log
-from utilities import rw_csv as csv, convert_cron
-from utilities.get_using_json import get_json_value
 import requests
 import pytest_check as check
 from utilities.resources import ApiResources
-from utilities.get_using_re import get_substring
 # import pdb; pdb.set_trace()
 
 
@@ -47,7 +44,7 @@ def get_testcase_data(testcase_id):
     try:
         context.testcase_id = testcase_id
         # Fetching all data from the provided testcase_id from the CSV file
-        context.row = csv.read_csv(testcase_id, key="row", csv_file_path=context.csv_file_path)
+        # context.row = csv.read_csv(testcase_id, key="row", csv_file_path=context.csv_file_path)
         try:
             # Check if CSV file returned any error
             if context.row["error"]:
@@ -89,7 +86,7 @@ def set_body(body):
             context.body = context.row[body.capitalize()]
         else:
             context.body = body
-        context.body_json = get_json_value(context.body)
+        # context.body_json = get_json_value(context.body)
         log.info(f"<{context.testcase_id}> - Body set to: {context.body}")
 
     except Exception as e:
@@ -187,7 +184,6 @@ def test():
 @when('When statement')
 def when():
     log.info("when statement")
-
 
 
 @then('Print when data context.row')
