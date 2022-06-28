@@ -8,4 +8,5 @@ Feature: feature
 		Given Test 123
 		When When statement
 		Then Print when data context.row
+		And And then statement
 
