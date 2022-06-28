@@ -28,8 +28,7 @@ jobs:
       - name: get dir details
         run: dir
         
-      - name: install requirments.txt
-        # run: pip3 install -r pytest_api/requirements.txt
+      - name: install requirments.txt  # run: pip3 install -r pytest_api/requirements.txt
 	  run: pytest_api\pytest_venv\Scripts\activate.bat
         
       - name: execute py script
