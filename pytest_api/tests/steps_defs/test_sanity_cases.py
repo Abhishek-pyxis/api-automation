@@ -177,12 +177,12 @@ def get_story_id():
 
 
 @given('Test 123')
-def test():
+def given_statement():
     log.info("Test 123")
 
 
 @when('When statement')
-def when():
+def when_statement():
     log.info("when statement")
 
 
@@ -191,6 +191,6 @@ def get_when_data():
     log.info("this is what we want.")
 
 
-@then('And then statement')
+@then('Another then statement')
 def and_then():
-    log.info("And then stament.")
+    log.info("Another then statement.")
