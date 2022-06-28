@@ -2,7 +2,7 @@ name: run_api_automation
 
 on:
   schedule:
-    - cron: '05 11 * * *' # runs at 12:00 UTC everyday
+    - cron: '14 11 * * *' # runs at 12:00 UTC everyday
 
 jobs:
   build:
