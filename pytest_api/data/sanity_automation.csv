@@ -1,0 +1,254 @@
+Test Id,Test scenario,Test case,Priority,Request type,Request URL,Body,Update body,Test steps,Expected status code,Error,Validate,Expected result,Actual result,Status,Comments
+po_sanity_01,"Validate ""Create Fake Story"" API ","Verify if all parameters are as expected in the ""Create Fake Story"" API response.",P0,POST,{{baseUrl}}/api/v1/fake_stories/,"{""fake_story_in"":{""name"":""Test create_QA_"",""target_cpr"":2.5,""target_result"":10,""look_back_period"":7,""bid_increase_value"":10,""bid_decrease_value"":7,""result_metric_key"":""fb_primary_actions_omni_app_install"",""budget_increase_value"":10,""budget_decrease_value"":6,""cross_budget_max"":1000,""cross_budget_min"":1,""action_attribute_window_id"":3,""ai_group_id"":""07734f80-111a-4e1c-a5b0-c4f27f402cb9"",""bandit_bid_min"":1,""bandit_bid_max"":50,""bandit_budget_min"":150,""bandit_budget_max"":250,""budget_redistribution_low"":0.05,""budget_redistribution_medium"":0.07,""budget_redistribution_high"":0.09,""number_of_testing_phases"":24,""optimization_phase_duration"":5},""bandit_in"":{}}",,"	Scenario: po_sanity_01: Verify if all parameters are as expected in the ""Create Fake Story"" API response.
+		Given Get data from CSV for ""po_sanity_01""
+		When Create story
+		Then Validate HTTP response code ""from csv""
+		And Validate story response
+		And Delete story",201,-,,"{""name"":""Test create_QA_"",""is_active"":true,""result_metric_key"":""fb_primary_actions_omni_app_install"",""target_cpr"":2.5,""target_result"":10,""look_back_period"":7,""look_back_period_starts_yesterday"":true,""bid_increase_value"":10,""bid_decrease_value"":7,""budget_increase_value"":10,""budget_decrease_value"":6,""action_attribute_window_id"":3,""bandit_bid_min"":1,""bandit_bid_max"":50,""bandit_budget_min"":150,""bandit_budget_max"":250,""budget_redistribution_low"":0.05,""budget_redistribution_medium"":0.07,""budget_redistribution_high"":0.09,""bandit_reward_score"":""fb_derived_bandit_score"",""bandit_type"":""KL_UCB"",""number_of_testing_phases"":24,""optimization_phase_duration"":5,""cross_budget_min"":1,""cross_budget_max"":1000,""ai_group_id"":""07734f80-111a-4e1c-a5b0-c4f27f402cb9"",""id"":1000743,""created_at"":""2022-05-06T07:18:03.125965+00:00"",""modified_at"":""2022-05-06T07:18:03.125985+00:00""}",,,1-30
+po_sanity_02,"Validate ""Update Fake Story"" API ","Verify if all parameters are getting updated as expected in the ""Update Fake Story"" API response.",P0,PUT,{{baseUrl}}/api/v1/fake_stories/{{story_id}},"{""fake_story_in"":{""name"":""Test create_QA_"",""target_cpr"":2.5,""target_result"":10,""look_back_period"":7,""bid_increase_value"":10,""bid_decrease_value"":7,""result_metric_key"":""fb_primary_actions_omni_app_install"",""budget_increase_value"":10,""budget_decrease_value"":6,""cross_budget_max"":1000,""cross_budget_min"":1,""action_attribute_window_id"":3,""ai_group_id"":""07734f80-111a-4e1c-a5b0-c4f27f402cb9"",""bandit_bid_min"":1,""bandit_bid_max"":50,""bandit_budget_min"":150,""bandit_budget_max"":250,""budget_redistribution_low"":0.05,""budget_redistribution_medium"":0.07,""budget_redistribution_high"":0.09,""number_of_testing_phases"":24,""optimization_phase_duration"":5},""bandit_in"":{}}","{""fake_story_in"":{""name"":""Test create new_QA_"",""target_cpr"":5.75,""target_result"":101,""look_back_period"":1,""bid_increase_value"":11,""bid_decrease_value"":6,""result_metric_key"":""fb_primary_actions_app_custom_event_fb_mobile_add_to_wishlist"",""budget_increase_value"":9,""budget_decrease_value"":5,""cross_budget_max"":500,""cross_budget_min"":20,""action_attribute_window_id"":1,""ai_group_id"":""07734f80-111a-4e1c-a5b0-c4f27f402cb9"",""bandit_bid_min"":50,""bandit_bid_max"":150,""bandit_budget_min"":77,""bandit_budget_max"":300,""budget_redistribution_low"":0.04,""budget_redistribution_medium"":0.05,""budget_redistribution_high"":0.08,""number_of_testing_phases"":21,""optimization_phase_duration"":2},""bandit_in"":{}}","	Scenario: po_sanity_02: Verify if all parameters are getting updated as expected in the ""Update Fake Story"" API response.
+		Given Get data from CSV for ""po_sanity_02""
+		When Create story
+		And I set api endpoint to ""update_fake_story""
+		And Set the body of request to ""update body""
+		And Perform put
+		Then Validate HTTP response code ""from csv""
+		And Validate story response
+		And Delete story",200,-,,"{""name"":""Test create_QA_"",""is_active"":true,""result_metric_key"":""fb_primary_actions_omni_app_install"",""target_cpr"":2.5,""target_result"":10,""look_back_period"":7,""look_back_period_starts_yesterday"":true,""bid_increase_value"":10,""bid_decrease_value"":7,""budget_increase_value"":10,""budget_decrease_value"":6,""action_attribute_window_id"":3,""bandit_bid_min"":1,""bandit_bid_max"":50,""bandit_budget_min"":150,""bandit_budget_max"":250,""budget_redistribution_low"":0.05,""budget_redistribution_medium"":0.07,""budget_redistribution_high"":0.09,""bandit_reward_score"":""fb_derived_bandit_score"",""bandit_type"":""KL_UCB"",""number_of_testing_phases"":24,""optimization_phase_duration"":5,""cross_budget_min"":1,""cross_budget_max"":1000,""ai_group_id"":""07734f80-111a-4e1c-a5b0-c4f27f402cb9"",""id"":1000737,""created_at"":""2022-05-05T06:41:37.630843+00:00"",""modified_at"":""2022-05-06T11:06:54.385369+00:00""}",,,31-55
+po_sanity_03,"Validate ""Read Fake Story"" API","Verify if all expected parameters are present in the ""Read Fake Story"" api response for existing story",P0,GET,{{baseUrl}}/api/v1/fake_stories/{{story_id}},"{""fake_story_in"":{""name"":""Test create_QA_"",""target_cpr"":2.5,""target_result"":10,""look_back_period"":7,""bid_increase_value"":10,""bid_decrease_value"":7,""result_metric_key"":""fb_primary_actions_omni_app_install"",""budget_increase_value"":10,""budget_decrease_value"":6,""cross_budget_max"":1000,""cross_budget_min"":1,""action_attribute_window_id"":3,""ai_group_id"":""07734f80-111a-4e1c-a5b0-c4f27f402cb9"",""bandit_bid_min"":1,""bandit_bid_max"":50,""bandit_budget_min"":150,""bandit_budget_max"":250,""budget_redistribution_low"":0.05,""budget_redistribution_medium"":0.07,""budget_redistribution_high"":0.09,""number_of_testing_phases"":24,""optimization_phase_duration"":5},""bandit_in"":{}}",,"	Scenario: po_sanity_03: Verify if all expected parameters are present in the ""Read Fake Story"" api response for existing story
+		Given Get data from CSV for ""po_sanity_03""
+		When Create story
+		And I set api endpoint to ""read_fake_story""
+		And Perform get
+		Then Validate HTTP response code ""from csv""
+		And Validate story response
+		And Delete story",200,-,,"{""name"":""Test create_QA_"",""is_active"":true,""result_metric_key"":""fb_primary_actions_omni_app_install"",""target_cpr"":2.5,""target_result"":10,""look_back_period"":7,""look_back_period_starts_yesterday"":true,""bid_increase_value"":10,""bid_decrease_value"":7,""budget_increase_value"":10,""budget_decrease_value"":6,""action_attribute_window_id"":3,""bandit_bid_min"":1,""bandit_bid_max"":50,""bandit_budget_min"":150,""bandit_budget_max"":250,""budget_redistribution_low"":0.05,""budget_redistribution_medium"":0.07,""budget_redistribution_high"":0.09,""bandit_reward_score"":""fb_derived_bandit_score"",""bandit_type"":""KL_UCB"",""number_of_testing_phases"":24,""optimization_phase_duration"":5,""cross_budget_min"":1,""cross_budget_max"":1000,""ai_group_id"":""07734f80-111a-4e1c-a5b0-c4f27f402cb9"",""id"":1000737,""created_at"":""2022-05-05T06:41:37.630843+00:00"",""modified_at"":""2022-05-06T11:06:54.385369+00:00""}",,,56-80
+po_sanity_04,"Validate ""Delete Fake Story"" API","Verify if the created fake story is getting deleted using ""Delete Fake Story"" API",P0,DELETE,{{baseUrl}}/api/v1/fake_stories/{{story_id}},"{""fake_story_in"":{""name"":""Test create_QA_"",""target_cpr"":2.5,""target_result"":10,""look_back_period"":7,""bid_increase_value"":10,""bid_decrease_value"":7,""result_metric_key"":""fb_primary_actions_omni_app_install"",""budget_increase_value"":10,""budget_decrease_value"":6,""cross_budget_max"":1000,""cross_budget_min"":1,""action_attribute_window_id"":3,""ai_group_id"":""07734f80-111a-4e1c-a5b0-c4f27f402cb9"",""bandit_bid_min"":1,""bandit_bid_max"":50,""bandit_budget_min"":150,""bandit_budget_max"":250,""budget_redistribution_low"":0.05,""budget_redistribution_medium"":0.07,""budget_redistribution_high"":0.09,""number_of_testing_phases"":24,""optimization_phase_duration"":5},""bandit_in"":{}}",,"	Scenario: po_sanity_04: Verify if the created fake story is getting deleted using ""Delete Fake Story"" API
+		Given Get data from CSV for ""po_sanity_04""
+		When Create story
+		Then Delete story
+		And Validate HTTP response code ""from csv""
+		And Validate delete story",200,-,,null,,,81-82
+po_sanity_05,"Validate ""Set Rows By Story"" API","Verify if models are being assigned to story using ""Set Rows By Story"" API",P0,POST,{{baseUrl}}/api/v1/ai_model_stories/{{story_id}},"{""ai_model_list"":[0,1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,26,27,30,40,41]}",,"	Scenario: po_sanity_05: Verify if models are being assigned to story using ""Set Rows By Story"" API
+		Given Get data from CSV for ""po_sanity_05""
+		When Create story
+		And I set api endpoint to ""set_rows_by_story_ai_model""
+		And Set the body of request to ""body""
+		And Perform post
+		Then Validate HTTP response code ""from csv""
+		And Validate ai_model_stories response
+		And Delete story",201,-,,"[{""id"":2032,""story_id"":1000698,""ai_model_id"":0},{""id"":2033,""story_id"":1000698,""ai_model_id"":1},{""id"":2034,""story_id"":1000698,""ai_model_id"":3},{""id"":2035,""story_id"":1000698,""ai_model_id"":4},{""id"":2036,""story_id"":1000698,""ai_model_id"":5},{""id"":2037,""story_id"":1000698,""ai_model_id"":6},{""id"":2038,""story_id"":1000698,""ai_model_id"":7},{""id"":2039,""story_id"":1000698,""ai_model_id"":8},{""id"":2040,""story_id"":1000698,""ai_model_id"":9},{""id"":2041,""story_id"":1000698,""ai_model_id"":10},{""id"":2042,""story_id"":1000698,""ai_model_id"":11},{""id"":2043,""story_id"":1000698,""ai_model_id"":12},{""id"":2044,""story_id"":1000698,""ai_model_id"":13},{""id"":2045,""story_id"":1000698,""ai_model_id"":14},{""id"":2046,""story_id"":1000698,""ai_model_id"":15},{""id"":2047,""story_id"":1000698,""ai_model_id"":16},{""id"":2048,""story_id"":1000698,""ai_model_id"":17},{""id"":2049,""story_id"":1000698,""ai_model_id"":26},{""id"":2050,""story_id"":1000698,""ai_model_id"":27},{""id"":2051,""story_id"":1000698,""ai_model_id"":30},{""id"":2052,""story_id"":1000698,""ai_model_id"":40},{""id"":2053,""story_id"":1000698,""ai_model_id"":41}]",,,83-84
+po_sanity_06,"Validate ""Set Rows By Story"" API","Verify if models are being updated for a story using ""Set Rows By Story"" API",P0,POST,{{baseUrl}}/api/v1/ai_model_stories/{{story_id}},"{""ai_model_list"":[0,3,5]}",,"	Scenario: po_sanity_06: Verify if models are being updated for a story using ""Set Rows By Story"" API
+		Given Get data from CSV for ""po_sanity_06""
+		When Create story and assign ai models
+		And I set api endpoint to ""set_rows_by_story_ai_model""
+		And Set the body of request to ""body""
+		And Perform post
+		Then Validate HTTP response code ""from csv""
+		And Validate ai_model_stories response
+		And Delete story",201,-,,"[{""id"":2078,""story_id"":1001104,""ai_model_id"":0},{""id"":2079,""story_id"":1001104,""ai_model_id"":3},{""id"":2080,""story_id"":1001104,""ai_model_id"":5}]",,,85
+po_sanity_07,"Validate ""Set Rows By Story"" API","Verify if models are removed for a story using ""Set Rows By Story"" API",P0,POST,{{baseUrl}}/api/v1/ai_model_stories/{{story_id}},"{""ai_model_list"":[]}",,"	Scenario: po_sanity_07: Verify if models are removed for a story using ""Set Rows By Story"" API
+		Given Get data from CSV for ""po_sanity_07""
+		When Create story and assign ai models
+		And I set api endpoint to ""set_rows_by_story_ai_model""
+		And Set the body of request to ""body""
+		And Perform post
+		Then Validate HTTP response code ""from csv""
+		And Validate ai_model_stories response
+		And Delete story",201,-,,[],,,86
+po_sanity_08,"Validate ""Set Rows By Story"" API","Verify if error message is present in response while assigning models to a invalid fake story using ""Set Rows By Story"" API",P0,POST,{{baseUrl}}/api/v1/ai_model_stories/{{story_id}},"{""ai_model_list"":[0,3,5]}",,"	Scenario: po_sanity_08: Verify if error message is present in response while assigning models to a invalid fake story using ""Set Rows By Story"" API
+		Given Get data from CSV for ""po_sanity_08""
+		When Create story
+		Then Delete story
+		When I set api endpoint to ""set_rows_by_story_ai_model""
+		And Set the body of request to ""body""
+		And Perform post
+		Then Validate HTTP response code ""from csv""
+		And Validate ai_model_stories response error message",404,"""This fake story does not exist in the system""",,"{""detail"":""This fake story does not exist in the system""}",,,87
+po_sanity_09,"Validate ""Get Rows By Story"" API","Verify if all parameters are as expected in the ""Get Rows By Story"" API response.",P0,GET,{{baseUrl}}/api/v1/ai_model_stories/{{story_id}},,,"	Scenario: po_sanity_09:Verify if all parameters are as expected in the ""Get Rows By Story"" API response.
+		Given Get data from CSV for ""po_sanity_09""
+		When Create story and assign ai models
+		And I set api endpoint to ""get_rows_by_story_ai_model""
+		And Perform get
+		Then Validate HTTP response code ""from csv""
+		And Validate ai_model_stories response
+		And Delete story",200,,,"[{""id"":2093,""story_id"":1001104,""ai_model_id"":1},{""id"":2094,""story_id"":1001104,""ai_model_id"":3},{""id"":2095,""story_id"":1001104,""ai_model_id"":7}]",,,88-89
+po_sanity_10,"Validate ""Set Optimization Schedules"" API","Verify if all parameters are as expected in the ""Set Optimization Schedules"" API response.",P0,POST,{{baseUrl}}/api/v1/optimization_schedules/?frequency_launch={{frequency_value}}&start_time={{time}},"{""story_ids"":[1000000]}",,"	Scenario: po_sanity_10: Verify if all parameters are as expected in the ""Get Rows By Story"" API response.
+		Given Get data from CSV for ""po_sanity_10""
+		When Set the frequency_launch to ""1"" and start_time to ""14:00""
+		And I set api endpoint to ""set_optimization_schedules""
+		And Set the body of request to ""body""
+		And Perform post
+		Then Validate HTTP response code ""from csv""
+		And Validate ""set_optimization_schedules"" response
+		When I set api endpoint to ""delete_schedule_by_story""
+		And Perform delete
+		Then Validate HTTP response code ""200""",201,-,,"[{""id"":692,""story_id"":1001104,""cron"":""30 8 * * *"",""last_dag_run"":null,""manual_trigger"":false,""start_time"":""14:00"",""frequency_launch"":1}]",,,90-97
+po_sanity_11,"Validate ""Create Trigger By Story"" API","Verify if all parameters are as expected in the ""Create Trigger By Story"" API response.",P0,POST,{{baseUrl}}/api/v1/optimization_schedules/{{story_id}},-,,"	Scenario: po_sanity_11: Verify if all parameters are as expected in the ""Create Trigger By Story"" API response.
+		Given Get data from CSV for ""po_sanity_11""
+		When I set api endpoint to ""create_trigger_by_story""
+		And Set the body of request to ""blank""
+		And Perform post
+		Then Validate HTTP response code ""from csv""
+		And Validate ""create_trigger_by_story"" response
+		When I set api endpoint to ""delete_schedule_by_story""
+		And Perform delete
+		Then Validate HTTP response code ""200""",201,,,"{""id"":693,""story_id"":1001104,""cron"":null,""last_dag_run"":null,""manual_trigger"":true,""start_time"":null,""frequency_launch"":null}",,,98-105
+po_sanity_12,"Validate ""Read Schedule By Story"" API","Verify if all parameters are as expected in the ""Read Schedule By Story"" API response.",P0,GET,{{baseUrl}}/api/v1/optimization_schedules/{{story_id}},,,"	Scenario: po_sanity_12: Verify if all parameters are as expected in the ""Read Schedule By Story"" API response.
+		Given Get data from CSV for ""po_sanity_10""
+		When Set the frequency_launch to ""1"" and start_time to ""14:00""
+		And I set api endpoint to ""set_optimization_schedules""
+		And Set the body of request to ""body""
+		And Perform post
+		Given Get data from CSV for ""po_sanity_12""
+		When I set api endpoint to ""read_schedule_by_story""
+		And Perform get
+		Then Validate HTTP response code ""from csv""
+		And Validate ""set_optimization_schedules"" response
+		When I set api endpoint to ""delete_schedule_by_story""
+		And Perform delete
+		Then Validate HTTP response code ""200""",200,,,"{""id"":692,""story_id"":1001104,""cron"":""30 8 * * *"",""last_dag_run"":null,""manual_trigger"":false,""start_time"":""14:00"",""frequency_launch"":1}",,,106-113
+po_sanity_13,"Validate ""Delete Schedule By Story"" API","Validate if creatd Schedule is getting deleted using ""Delete Schedule By Story"" API",P0,DELETE,{{baseUrl}}/api/v1/optimization_schedules/{{story_id}},-,,"	Scenario: po_sanity_13: Validate if creatd Schedule is getting deleted using ""Delete Schedule By Story"" API.
+		Given Get data from CSV for ""po_sanity_10""
+		When Set the frequency_launch to ""1"" and start_time to ""14:00""
+		And I set api endpoint to ""set_optimization_schedules""
+		And Set the body of request to ""body""
+		And Perform post
+		Given Get data from CSV for ""po_sanity_13""
+		When I set api endpoint to ""delete_schedule_by_story""
+		And Perform delete
+		Then Validate HTTP response code ""from csv""
+		And Validate ""delete_schedule_by_story"" response
+		When I set api endpoint to ""read_schedule_by_story""
+		And Perform get
+		Then Validate HTTP response code ""from csv""
+		And Validate ""delete_schedule_by_story"" response",200,,,null,,,114-115
+po_sanity_14,"Validate ""Set Phases By Fb Id"" API","Verify if all parameters are as expected in the ""Set Phases By Fb Id"" API response.",P0,POST,{{baseUrl}}/api/v1/phases/?fb_id={{fb_id}},"[{""name"":""observation"",""starts_at"":11,""lower_confidence_score"":10,""upper_confidence_score"":20,""ends_at"":5,""phase_id"":""phase1""},{""name"":""recommendation"",""starts_at"":1,""lower_confidence_score"":21,""upper_confidence_score"":30,""ends_at"":5,""phase_id"":""phase2""},{""name"":""calibration"",""starts_at"":1,""lower_confidence_score"":31,""upper_confidence_score"":59,""ends_at"":5,""phase_id"":""phase3""},{""name"":""incubation"",""starts_at"":1,""lower_confidence_score"":60,""upper_confidence_score"":79,""ends_at"":5,""phase_id"":""phase4""},{""name"":""exploration"",""starts_at"":1,""lower_confidence_score"":80,""upper_confidence_score"":99,""ends_at"":5,""phase_id"":""phase5""}]",,"	Scenario: po_sanity_14: Verify if all parameters are as expected in the ""Set Phases By Fb Id"" API response.
+		Given Get data from CSV for ""po_sanity_14""
+		When Set the ad account id to ""361359502489563""
+		And I set api endpoint to ""set_phases_by_fb_id""
+		And Set the body of request to ""body""
+		And Perform post
+		Then Validate HTTP response code ""from csv""
+		And Validate phase response",201,,,"[{""name"":""observation"",""starts_at"":11,""lower_confidence_score"":10,""upper_confidence_score"":20,""ends_at"":5,""id"":334,""phase_id"":""phase1"",""ad_account_id"":238,""fb_id"":""361359502489563"",""action_execution_enabled"":false},{""name"":""recommendation"",""starts_at"":1,""lower_confidence_score"":21,""upper_confidence_score"":30,""ends_at"":5,""id"":335,""phase_id"":""phase2"",""ad_account_id"":238,""fb_id"":""361359502489563"",""action_execution_enabled"":false},{""name"":""calibration"",""starts_at"":1,""lower_confidence_score"":31,""upper_confidence_score"":59,""ends_at"":5,""id"":336,""phase_id"":""phase3"",""ad_account_id"":238,""fb_id"":""361359502489563"",""action_execution_enabled"":true},{""name"":""incubation"",""starts_at"":1,""lower_confidence_score"":60,""upper_confidence_score"":79,""ends_at"":5,""id"":337,""phase_id"":""phase4"",""ad_account_id"":238,""fb_id"":""361359502489563"",""action_execution_enabled"":true},{""name"":""exploration"",""starts_at"":1,""lower_confidence_score"":80,""upper_confidence_score"":99,""ends_at"":5,""id"":338,""phase_id"":""phase5"",""ad_account_id"":238,""fb_id"":""361359502489563"",""action_execution_enabled"":true}]",,,116-124
+po_sanity_15,"Validate ""Update Phase"" API","Verify if all parameters are as expected in the ""Update Phase"" API response.",P0,PUT,{{baseUrl}}/api/v1/phases/{{fb_id}}?phase_id={{phase_id}},"{""name"":""observation"",""starts_at"":1,""lower_confidence_score"":0,""upper_confidence_score"":20,""ends_at"":7}",,"	Scenario: po_sanity_15: Verify if all parameters are as expected in the ""Update Phase"" API response.
+		Given Get data from CSV for ""po_sanity_15""
+		When Set the ad account id to ""361359502489563""
+		And I set api endpoint to ""update_phase""
+		And Set the body of request to ""body""
+		And Perform put
+		Then Validate HTTP response code ""from csv""
+		And Validate phase response",200,,,"{""name"":""observation"",""starts_at"":1,""lower_confidence_score"":0,""upper_confidence_score"":20,""ends_at"":7,""id"":334,""phase_id"":""phase1"",""ad_account_id"":238,""fb_id"":""361359502489563"",""action_execution_enabled"":false}",,,125-133
+po_sanity_16,"Validate ""Read Phases By Fb Id"" API","Verify if all parameters are as expected in the ""Read Phases By Fb Id"" API response.",P0,GET,{{baseUrl}}/api/v1/phases/{{fb_id}},,,"	Scenario: po_sanity_16: Verify if all parameters are as expected in the ""Read Phases By Fb Id"" API response.
+		Given Get data from CSV for ""po_sanity_14""
+		When Set the ad account id to ""361359502489563""
+		And I set api endpoint to ""set_phases_by_fb_id""
+		And Set the body of request to ""body""
+		And Perform post
+		Given Get data from CSV for ""po_sanity_16""
+		When I set api endpoint to ""read_phases_by_fb_id""
+		And Perform get
+		Then Validate HTTP response code ""from csv""
+		And Validate phase response",200,,,"[{""name"":""observation"",""starts_at"":1,""lower_confidence_score"":0,""upper_confidence_score"":20,""ends_at"":7,""id"":334,""phase_id"":""phase1"",""ad_account_id"":238,""fb_id"":""361359502489563"",""action_execution_enabled"":false},{""name"":""recommendation"",""starts_at"":1,""lower_confidence_score"":21,""upper_confidence_score"":30,""ends_at"":5,""id"":335,""phase_id"":""phase2"",""ad_account_id"":238,""fb_id"":""361359502489563"",""action_execution_enabled"":false},{""name"":""calibration"",""starts_at"":1,""lower_confidence_score"":31,""upper_confidence_score"":59,""ends_at"":5,""id"":336,""phase_id"":""phase3"",""ad_account_id"":238,""fb_id"":""361359502489563"",""action_execution_enabled"":true},{""name"":""incubation"",""starts_at"":1,""lower_confidence_score"":60,""upper_confidence_score"":79,""ends_at"":5,""id"":337,""phase_id"":""phase4"",""ad_account_id"":238,""fb_id"":""361359502489563"",""action_execution_enabled"":true},{""name"":""exploration"",""starts_at"":1,""lower_confidence_score"":80,""upper_confidence_score"":99,""ends_at"":5,""id"":338,""phase_id"":""phase5"",""ad_account_id"":238,""fb_id"":""361359502489563"",""action_execution_enabled"":true}]",,,134-141
+po_sanity_17,"Validate ""Delete Phase"" API","Verify if created phase is getting deleted using ""Delete Phase"" API",P0,DELETE,{{baseUrl}}/api/v1/phases/{{fb_id}}?phase_id={{phase_id}},,,"	Scenario: po_sanity_17: Verify if created phase is getting deleted using ""Delete Phase"" API.
+		Given Get data from CSV for ""po_sanity_14""
+		When Set the ad account id to ""361359502489563""
+		And I set api endpoint to ""set_phases_by_fb_id""
+		And Set the body of request to ""body""
+		And Perform post
+		Given Get data from CSV for ""po_sanity_17""
+		When I set api endpoint to ""delete_phase""
+		And Perform delete
+		Then Validate HTTP response code ""from csv""
+		When I set api endpoint to ""read_phases_by_fb_id""
+		And Perform get
+		Then Validate delete phase",200,,,null,,,142-143
+po_sanity_18,"Validate ""Set Rows By Story Id(keywords_settings)"" API","Verify if all parameters are as expected in the ""Set Rows By Story Id(keywords_settings)"" API response.",P0,POST,{{baseUrl}}/api/v1/keywords_settings/{{story_id}},"[{""ad_account_id"":""1826818684"",""low_percentage"":5,""high_percentage"":10,""roi_weight"":50,""quality_weight"":50}]",,"	Scenario: po_sanity_18: Verify if all parameters are as expected in the ""Set Rows By Story Id(keywords_settings)"" API response.
+		Given Get data from CSV for ""po_sanity_18""
+		When Create story
+		And I set api endpoint to ""set_rows_by_story_id_keywords_settings""
+		And Set the body of request to ""body""
+		And Perform post
+		Then Validate HTTP response code ""from csv""
+		And Validate keywords_settings response
+		And Delete story",201,,,"[{""ad_account_id"":1826818684,""low_percentage"":5,""high_percentage"":10,""roi_weight"":50,""quality_weight"":50,""id"":193,""story_id"":1000677}]",,,144-151
+po_sanity_19,"Validate ""Read Rows By Story Id(keywords_settings)"" API","Verify if all parameters are as expected in the ""Read Rows By Story Id(keywords_settings)"" API response.",P0,GET,{{baseUrl}}/api/v1/keywords_settings/{{story_id}},,,"	Scenario: po_sanity_19: Verify if all parameters are as expected in the ""Read Rows By Story Id(keywords_settings)"" API response.
+		Given Get data from CSV for ""po_sanity_19""
+		When Create story
+		And Set keywords_settings for story
+		And I set api endpoint to ""read_rows_by_story_id_keywords_settings""
+		And Perform get
+		Then Validate HTTP response code ""from csv""
+		And Validate keywords_settings response
+		And Delete story",200,,,"[{""ad_account_id"":1826818684,""low_percentage"":5,""high_percentage"":10,""roi_weight"":50,""quality_weight"":50,""id"":193,""story_id"":1000677}]",,,152-159
+po_sanity_20,"Validate ""Delete Rows By Story Id(keywords_settings)"" API","Verify if created keyword settings are getting deleted using ""Delete Rows By Story Id(keywords_settings)"" API",P0,DELETE,{{baseUrl}}/api/v1/keywords_settings/{{story_id}},,,"	Scenario: po_sanity_20: Verify if created keyword settings are getting deleted using ""Delete Rows By Story Id(keywords_settings)"" API.
+		Given Get data from CSV for ""po_sanity_20""
+		When Create story
+		And Set keywords_settings for story
+		And I set api endpoint to ""delete_rows_by_story_id_keywords_settings""
+		And Perform delete
+		Then Validate HTTP response code ""from csv""
+		When I set api endpoint to ""read_rows_by_story_id_keywords_settings""
+		And Perform get
+		When I set api endpoint to ""delete_rows_by_story_id_keywords_settings""
+		Then Validate keywords_settings response
+		And Delete story",200,,,null,,,160-161
+po_sanity_21,"Validate ""Set Rows By Story Id(keywords_metrics)"" API","Verify if all parameters are as expected in the ""Set Rows By Story Id(keywords_metrics)"" API response.",P0,POST,{{baseUrl}}/api/v1/keywords_metrics/{{story_id}},"[{""metric_key"":""gdn_primary_clicks"",""cost_key"":null,""type"":""performance"",""factor"":""quality"",""weight"":50},{""metric_key"":""gdn_primary_clicks"",""cost_key"":null,""type"":""performance"",""factor"":""roi"",""weight"":50}]",,"	Scenario: po_sanity_21: Verify if all parameters are as expected in the ""Set Rows By Story Id(keywords_metrics)"" API response.
+		Given Get data from CSV for ""po_sanity_21""
+		When Create story
+		And I set api endpoint to ""set_rows_by_story_id_keywords_metrics""
+		And Set the body of request to ""body""
+		And Perform post
+		Then Validate HTTP response code ""from csv""
+		And Validate keywords_metrics response
+		And Delete story",201,,,"[{""ad_account_id"":null,""metric_key"":""gdn_primary_clicks"",""cost_key"":null,""type"":""performance"",""factor"":""quality"",""weight"":50,""id"":30,""story_id"":1001534},{""ad_account_id"":null,""metric_key"":""gdn_primary_clicks"",""cost_key"":null,""type"":""performance"",""factor"":""roi"",""weight"":50,""id"":31,""story_id"":1001534}]",,,162-170
+po_sanity_22,"Validate ""Read Rows By Story Id(keywords_metrics)"" API","Verify if all parameters are as expected in the ""Read Rows By Story Id(keywords_metrics)"" API response.",P0,GET,{{baseUrl}}/api/v1/keywords_metrics/{{story_id}},,,"	Scenario: po_sanity_22: Verify if all parameters are as expected in the ""Read Rows By Story Id(keywords_metrics)"" API response.
+		Given Get data from CSV for ""po_sanity_22""
+		When Create story
+		And Set keywords_metrics for story
+		And I set api endpoint to ""read_rows_by_story_id_keywords_metrics""
+		And Perform get
+		Then Validate HTTP response code ""from csv""
+		And Validate keywords_metrics response
+		And Delete story",200,,,"[{""ad_account_id"":1826818684,""metric_key"":""gdn_primary_clicks"",""cost_key"":""gdn_primary_ctr"",""type"":""performance"",""factor"":""quality"",""weight"":50,""id"":6,""story_id"":1000677},{""ad_account_id"":1826818684,""metric_key"":""gdn_primary_clicks"",""cost_key"":""gdn_primary_ctr"",""type"":""performance"",""factor"":""roi"",""weight"":50,""id"":7,""story_id"":1000677}]",,,171-179
+po_sanity_23,"Validate ""Delete Rows By Story Id(keywords_metrics)"" API","Verify if created keywords_metrics are getting deleted using ""Delete Rows By Story Id(keywords_metrics)"" API",P0,DELETE,{{baseUrl}}/api/v1/keywords_metrics/{{story_id}},,,"	Scenario: po_sanity_23: Verify if created keywords_metrics are getting deleted using ""Delete Rows By Story Id(keywords_metrics)"" API.
+		Given Get data from CSV for ""po_sanity_23""
+		When Create story
+		And Set keywords_metrics for story
+		And I set api endpoint to ""delete_rows_by_story_id_keywords_metrics""
+		And Perform delete
+		Then Validate HTTP response code ""from csv""
+		When I set api endpoint to ""read_rows_by_story_id_keywords_metrics""
+		And Perform get
+		When I set api endpoint to ""delete_rows_by_story_id_keywords_metrics""
+		Then Validate keywords_metrics response
+		And Delete story",200,,,null,,,180-181
+po_sanity_24,"Validate ""Set Rows By Story Id(keywords_delta_items)"" API","Verify if all parameters are as expected in the ""Set Rows By Story Id(keywords_delta_items)"" API response.",P1,POST,{{baseUrl}}/api/v1/keywords_delta_items/{{story_id}},"[{""ad_account_id"":1826818684,""profitability_range"":""high"",""bid_range"":""high"",""delta"":10},{""ad_account_id"":1826818684,""profitability_range"":""high"",""bid_range"":""mid"",""delta"":20}]",,"	Scenario: po_sanity_24: Verify if all parameters are as expected in the ""Set Rows By Story Id(keywords_delta_items)"" API response.
+		Given Get data from CSV for ""po_sanity_24""
+		When Create story
+		And I set api endpoint to ""set_rows_by_story_id_keywords_delta_items""
+		And Set the body of request to ""body""
+		And Perform post
+		Then Validate HTTP response code ""from csv""
+		And Validate keywords_delta_items response
+		And Delete story",201,,,"[{""ad_account_id"":1826818684,""profitability_range"":""high"",""bid_range"":""high"",""delta"":10,""id"":13,""story_id"":1000698},{""ad_account_id"":1826818684,""profitability_range"":""high"",""bid_range"":""mid"",""delta"":20,""id"":14,""story_id"":1000698}]",,,182-188
+po_sanity_25,"Validate ""Set Rows By Story Id(keywords_delta_items)"" API","Verify if all parameters are as expected in the ""Set Rows By Story Id(keywords_delta_items)"" API response.",P1,GET,{{baseUrl}}/api/v1/keywords_delta_items/{{story_id}},,,"	Scenario: po_sanity_25: Verify if all parameters are as expected in the ""Set Rows By Story Id(keywords_delta_items)"" API response.
+		Given Get data from CSV for ""po_sanity_25""
+		When Create story
+		And Set keywords_delta_items for story
+		And I set api endpoint to ""read_rows_by_story_id_keywords_delta_items""
+		And Perform get
+		Then Validate HTTP response code ""from csv""
+		And Validate keywords_delta_items response
+		And Delete story",200,,,"[{""ad_account_id"":1826818684,""profitability_range"":""high"",""bid_range"":""high"",""delta"":10,""id"":13,""story_id"":1000698},{""ad_account_id"":1826818684,""profitability_range"":""high"",""bid_range"":""mid"",""delta"":20,""id"":14,""story_id"":1000698}]",,,189-195
+po_sanity_26,"Validate ""Delete Rows By Story Id(keywords_delta_items)"" API","Verify if created keyword delta are getting deleted using ""Delete Rows By Story Id(keywords_delta_items)"" API",P1,DELETE,{{baseUrl}}/api/v1/keywords_delta_items/{{story_id}},,,"	Scenario: po_sanity_23: Verify if created keyword delta are getting deleted using ""Delete Rows By Story Id(keywords_delta_items)"" API.
+		Given Get data from CSV for ""po_sanity_23""
+		When Create story
+		And Set keywords_delta_items for story
+		And I set api endpoint to ""delete_rows_by_story_id_keywords_delta_items""
+		And Perform delete
+		Then Validate HTTP response code ""from csv""
+		When I set api endpoint to ""read_rows_by_story_id_keywords_delta_items""
+		And Perform get
+		When I set api endpoint to ""delete_rows_by_story_id_keywords_delta_items""
+		Then Validate keywords_delta_items response
+		And Delete story",200,,,null,,,196-197
