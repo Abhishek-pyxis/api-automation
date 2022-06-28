@@ -28,7 +28,7 @@ jobs:
       - name: move to pytest_api folder # execute py script
         working-directory: ./pytest_api
      
-        run:|
+        run: |
            pytest_venv\Scripts\activate.bat
            pytest --html=.\reports\report.html --self-contained-html
 
